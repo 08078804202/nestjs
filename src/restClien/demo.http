@@ -1,0 +1,14 @@
+# POST http://localhost:3000/girl/add HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "id":8,
+#     "name":"xiaowangba",
+#     "age":33
+# }
+
+
+
+# GET  http://localhost:3000/girl/getGirlById?id=3
+
+GET  http://localhost:3000/girl/findGirlById/1/gao
