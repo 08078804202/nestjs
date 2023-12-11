@@ -1,8 +1,17 @@
-import { Controller, Get, Post, Request, Query, Body, Param, Headers } from '@nestjs/common';
+import { Controller, Get, Inject, Post, Request, Query, Body, Param, Headers } from '@nestjs/common';
 import { GirlService } from "./girl.service"
 @Controller('girl')
 export class GirlController {
-    constructor(private girlService: GirlService) { }
+    //默认提供的注入，简单写法
+    // constructor(private girlService: GirlService) { }
+
+    //自定义的注入写法 @Inject("girl") girl是在module里面起的名字。
+    constructor(
+        @Inject("girl") private girlService: GirlService, //注入service GirlService类型
+        @Inject("girlArray") private girls: string[] , //注入 自定义的值 girls是起的参数的名字
+        @Inject("MyFactory") private MyFactory: string  //注入 自定义的方法 MyFactory 是起的方法的名字
+
+    ) { }
     // @Get()
     // getGirl(): any {
     //     return this.girlService.getGirls()
@@ -56,4 +65,16 @@ export class GirlController {
         let name: string = param.name
         return this.girlService.getGirlByName(name)
     }
+
+    @Get("/test")
+    test(): any {
+        return this.girls;
+    }
+
+    @Get("/testMyFactory")
+    testMyFactory(): any {
+        return this.MyFactory;
+    }
+
+    
 }

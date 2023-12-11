@@ -43,7 +43,7 @@ export class GirlService {
         const data =new Girl()
         data.name="孙悟空"
         data.age=888
-        data.skill="大妖怪"
+        data.skill="大妖怪,可是披露"
         return this.girl.save(data)
     }
 

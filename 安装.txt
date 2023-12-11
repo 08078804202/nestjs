@@ -1,0 +1,5 @@
+1. 启动 phpstudy_pro 服务器  桌面有
+2.运行nestjs ，命令： run start
+3.配置热重载
+a.安装依赖包 配置热重载首先要安装相关的依赖，这里直接使用npm进行安装
+$ npm i --save-dev webpack-node-externals run-script-webpack-plugin webpack

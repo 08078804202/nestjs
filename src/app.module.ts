@@ -18,6 +18,6 @@ import { TypeOrmModule } from "@nestjs/typeorm"
     }),
     GirlModule],
   controllers: [],
-  providers: [],
+  providers: [], //providers 依赖注入
 })
 export class AppModule { }
