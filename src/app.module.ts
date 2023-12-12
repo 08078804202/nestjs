@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GirlModule } from './girl/girl.module';
 import { TypeOrmModule } from "@nestjs/typeorm"
+import { BoyModule } from './boy/boy.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { TypeOrmModule } from "@nestjs/typeorm"
       synchronize:true,
       autoLoadEntities:true
     }),
-    GirlModule],
+    GirlModule,
+    BoyModule],
   controllers: [],
   providers: [], //providers 依赖注入
 })

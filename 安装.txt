@@ -2,4 +2,33 @@
 2.运行nestjs ，命令： run start
 3.配置热重载
 a.安装依赖包 配置热重载首先要安装相关的依赖，这里直接使用npm进行安装
-$ npm i --save-dev webpack-node-externals run-script-webpack-plugin webpack
+npm i --save-dev webpack-node-externals run-script-webpack-plugin webpack
+
+增加后，文件会报hot不存在的错误，所以我们需要安装一个新的依赖包,使用npm进行安装。
+
+ npm i -D @types/webpack-env
+
+ 4.生成中间件
+ nest g mi counter
+ 5.解决跨域问题
+ npm install cors
+ npm install @types/cors -D
+
+ 6 创建模块
+ nest g res boy  // 选择 Rest Api   选择 y
+ **********输出例子*************
+ D:\IT\nestjs\nestjs-demo>nest g res boy
+? What transport layer do you use? REST API
+? Would you like to generate CRUD entry points? Yes
+CREATE src/boy/boy.controller.ts (862 bytes)
+CREATE src/boy/boy.controller.spec.ts (546 bytes)
+CREATE src/boy/boy.module.ts (234 bytes)
+CREATE src/boy/boy.service.ts (593 bytes)
+CREATE src/boy/boy.service.spec.ts (439 bytes)
+CREATE src/boy/dto/create-boy.dto.ts (29 bytes)
+CREATE src/boy/dto/update-boy.dto.ts (165 bytes)
+CREATE src/boy/entities/boy.entity.ts (20 bytes)
+UPDATE package.json (2353 bytes)
+UPDATE src/app.module.ts (610 bytes)
+✔ Packages installed successfully.
+*********************************
