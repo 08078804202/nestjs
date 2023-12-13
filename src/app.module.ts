@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { GirlModule } from './girl/girl.module';
 import { TypeOrmModule } from "@nestjs/typeorm"
 import { BoyModule } from './boy/boy.module';
+import { ConfigModule } from './config/config.module';
+import { DynamicTempModule } from './config/dynamic.module';
+
 
 @Module({
   imports: [
@@ -14,11 +17,14 @@ import { BoyModule } from './boy/boy.module';
       database: "test-agg",
       retryDelay: 500,
       retryAttempts: 10,
-      synchronize:true,
-      autoLoadEntities:true
+      synchronize: true,
+      autoLoadEntities: true
     }),
     GirlModule,
-    BoyModule],
+    BoyModule,
+    ConfigModule,//全局模块
+    DynamicTempModule.forRoot("洗浴中心") //动态模块
+  ],
   controllers: [],
   providers: [], //providers 依赖注入
 })

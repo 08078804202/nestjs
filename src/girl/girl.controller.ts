@@ -12,6 +12,8 @@ export class GirlController {
         @Inject("girl") private girlService: GirlService, //注入service GirlService类型
         @Inject("girlArray") private girls: string[] , //注入 自定义的值 girls是起的参数的名字
         @Inject("MyFactory") private MyFactory: string , //注入 自定义的方法 MyFactory 是起的方法的名字
+        @Inject("Config") private shopName:string ,//注入全局模块
+        @Inject("DynamicTempModule") private shopNameDynamic:string ,//注入全局动态模块
         private boyService :BoyService, //注入BoyService
     ) { }
     // @Get()
@@ -96,6 +98,18 @@ export class GirlController {
     getBoyAll():any{
         return this.boyService.findAll()
     }
+
+     //利用全局模块的值
+     @Get("/ConfigModule")
+     getConfigModuleValue():any{
+         return this.shopName
+     }
+
+      //利用全局动态模块的值
+      @Get("/DynamicTempModule")
+      getDynamicTempModule ():any{
+          return this.shopNameDynamic
+      }
 
     
 }
